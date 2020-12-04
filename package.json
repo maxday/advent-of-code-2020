@@ -1,0 +1,10 @@
+{
+  "name": "aoc-2020",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sebastien Castiel <sebastien@castiel.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.14.0"
+  }
+}
