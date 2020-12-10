@@ -1,3 +1,4 @@
+const { sum, uniq } = require('../helpers')
 const { testInput, input } = require('./input')
 
 const parseInput = (input) =>
@@ -5,9 +6,6 @@ const parseInput = (input) =>
     .split('\n\n')
     .map((s) => s.split('\n'))
     .map((a) => a.map((e) => [...e]))
-
-const uniq = (arr) => [...new Set([...arr])]
-const sum = (arr) => arr.reduce((acc, e) => acc + e, 0)
 
 const puzzle1 = (input) => sum(parseInput(input).map((arr) => uniq(arr.flat()).length))
 

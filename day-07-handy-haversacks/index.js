@@ -1,7 +1,5 @@
+const { uniq, sum } = require('../helpers')
 const { testInput, input, secondTestInput } = require('./input')
-// const util = require('util')
-
-// const log = (v) => console.log(util.inspect(v, false, Infinity))
 
 const parseInput = (str) =>
   str
@@ -44,9 +42,6 @@ const canBeContainedRules = (flatRules) => {
     {}
   )
 }
-
-const uniq = (arr) => [...new Set([...arr])]
-const sum = (arr) => arr.reduce((acc, e) => acc + e, 0)
 
 const getTreeColors = (tree) => uniq([tree.color, ...(tree.containers ? tree.containers.flatMap(getTreeColors) : [])])
 
