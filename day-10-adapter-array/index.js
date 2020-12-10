@@ -1,13 +1,14 @@
-const { testInput, input, miniInput } = require('./input')
+const { readLines } = require('../helpers')
+const process = require('process')
 
-const parseInput = (input) => {
-  const lines = input.split('\n').map(Number)
+const readAdapters = () => {
+  const lines = readLines(process.argv[2]).map(Number)
   lines.sort((a, b) => a - b)
   return [0, ...lines, Math.max(...lines) + 3]
 }
 
-const puzzle1 = (input) => {
-  const adapters = parseInput(input)
+const puzzle1 = () => {
+  const adapters = readAdapters()
   const differences = { 1: 0, 3: 0 }
   for (let i = 1; i < adapters.length; i++) {
     const diff = adapters[i] - adapters[i - 1]
@@ -16,8 +17,8 @@ const puzzle1 = (input) => {
   console.log(differences[1] * differences[3])
 }
 
-const puzzle2 = (input) => {
-  const adapters = parseInput(input)
+const puzzle2 = () => {
+  const adapters = readAdapters()
   const nodes = []
   adapters.forEach((val) => {
     const nbPaths = nodes
@@ -29,8 +30,5 @@ const puzzle2 = (input) => {
   console.log(nodes[nodes.length - 1].nbPaths)
 }
 
-puzzle1(testInput)
-puzzle1(input)
-puzzle2(miniInput)
-puzzle2(testInput)
-puzzle2(input)
+puzzle1()
+puzzle2()

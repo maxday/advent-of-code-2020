@@ -1,4 +1,5 @@
 const util = require('util')
+const fs = require('fs')
 
 exports.log = (v) => console.log(util.inspect(v, false, Infinity))
 
@@ -13,3 +14,5 @@ exports.findIndices = (arr, fn) => {
 }
 
 exports.uniq = (arr) => [...new Set([...arr])]
+
+exports.readLines = (file) => require('fs').readFileSync(file, 'utf-8').trim().split('\n')
